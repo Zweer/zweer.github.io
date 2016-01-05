@@ -45,4 +45,4 @@ gems:
     - jekyll-sitemap
 
 include: [".htaccess"]
-exclude: [".bundle", ".idea", ".c9", ".git", ".sass-cache", "Gemfile", "Gemfile.lock", "README.md", "LICENSE", "gulpfile.js", "bower.json", "package.json", "node_modules"]
+exclude: [".bundle", ".idea", ".c9", ".git", ".sass-cache", "_sass", "Gemfile", "Gemfile.lock", "README.md", "LICENSE", "gulpfile.js", "bower.json", "package.json", "node_modules"]
