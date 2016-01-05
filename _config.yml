@@ -40,13 +40,9 @@ disqus:
 google:
     analytics:  UA-40908812-1
     verify:     xVWjDgb14e3eZTNAL8g79JF4eHKw9AsigHLk9hLLh-A
-# SASS
-sass:
-    sass_dir:   _sass
-    style:      compressed
 # Gems
 gems:
     - jekyll-sitemap
 
 include: [".htaccess"]
-exclude: [".c9", ".sass-cache", "Gemfile", "Gemfile.lock", "README.md", "LICENSE", "gulpfile.js", "bower.json", "package.json", "node_modules"]
+exclude: [".bundle", ".idea", ".c9", ".git", ".sass-cache", "Gemfile", "Gemfile.lock", "README.md", "LICENSE", "gulpfile.js", "bower.json", "package.json", "node_modules"]

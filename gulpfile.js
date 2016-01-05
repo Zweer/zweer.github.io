@@ -5,6 +5,18 @@ var $ = require('gulp-load-plugins')();
 var del = require('del');
 var runSequence = require('run-sequence');
 
+// Same as bootstrap v4
+var browsers = [
+    'Android 2.3',
+    'Android >= 4',
+    'Chrome >= 35',
+    'Firefox >= 31',
+    'Explorer >= 9',
+    'iOS >= 7',
+    'Opera >= 12',
+    'Safari >= 7.1'
+];
+
 gulp.task('clean', del.bind(null, ['_sass/vendor', 'js/vendor', 'img/vendor']));
 gulp.task('clean:bower', del.bind(null, ['bower_components']));
 
@@ -19,21 +31,27 @@ gulp.task('bower:scss:bootstrap', ['bower'], function () {
         .src([
             'bower_components/bootstrap/scss/**/*.scss'
         ])
-        .pipe($.rename(function (path) {
-            if (path.basename.substr(0, 1) !== '_') {
-                path.basename = '_' + path.basename;
-            }
-            
-            return path;
-        }))
         .pipe(gulp.dest('_sass/vendor/bootstrap'))
         .pipe($.size({ title: 'bower:scss:bootstrap' }));
+});
+
+gulp.task('sass', function () {
+    return gulp
+        .src(['_sass/*.scss'])
+        .pipe($.sourcemaps.init())
+        .pipe($.sass({ outputStyle: 'compressed' }).on('error', $.sass.logError))
+        .pipe($.autoprefixer({ browsers: browsers, cascade: false }))
+        .pipe($.rename({ suffix: '.min' }))
+        .pipe($.sourcemaps.write('.'))
+        .pipe(gulp.dest('css'))
+        .pipe($.size({ title: 'sass' }));
 });
 
 gulp.task('default', function (done) {
     runSequence(
         'clean',
         ['bower:scss:bootstrap'],
+        'sass',
         'clean:bower',
         done
     );
