@@ -1,0 +1,15 @@
+        <header class="page-header"{% if page.image.featured %} style="background-image: url('{{ site.url }}/img/{{ page.image.featured }}');"{% endif %}>
+            {% if page.image.credit %}
+                <div class="page-header-credit">
+                    Image source: <a href="{{ page.image.creditlink }}" target="_blank">{{ page.image.credit }}</a>
+                </div>
+            {% endif %}
+            
+            <h1>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
+            
+            {% if page.date or page.title == Nil %}
+                <h2>{% if page.date %}<time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>{% else %}{{ site.description }}{% endif %}</h2>
+            {% endif %}
+            
+            {% if page.title %}{% include reading-time.html %}{% endif %}
+        </header>

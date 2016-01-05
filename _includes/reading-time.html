@@ -1,0 +1,4 @@
+{% if site.readingTime.enabled %}
+    {% assign readtime = content | strip_html | number_of_words | divided_by:site.readingTime.wordPerMinute %}
+    <span class="reading-time">Reading time ~{% if readtime <= 1 %}1 minute{% else %}{{ readtime }} minutes{% endif %}</span>
+{% endif %}
