@@ -46,7 +46,6 @@ sass:
     style:      compressed
 # Gems
 gems:
-    - octopress-autoprefixer
     - jekyll-sitemap
 
 include: [".htaccess"]
