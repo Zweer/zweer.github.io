@@ -5,7 +5,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prestart": "npm install",
-    "start": "gulp"
+    "start": "gulp",
+    "predev": "npm run prestart",
+    "dev": "gulp dev"
   },
   "repository": {
     "type": "git",

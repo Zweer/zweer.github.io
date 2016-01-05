@@ -47,6 +47,10 @@ gulp.task('sass', function () {
         .pipe($.size({ title: 'sass' }));
 });
 
+gulp.task('watch', function () {
+    gulp.watch(['_sass/*'], ['sass']);
+});
+
 gulp.task('default', function (done) {
     runSequence(
         'clean',
@@ -55,4 +59,8 @@ gulp.task('default', function (done) {
         'clean:bower',
         done
     );
+});
+
+gulp.task('dev', ['default'], function (done) {
+    runSequence(['watch'], done);
 });
