@@ -23,6 +23,15 @@ const messages = {
     jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
 };
 
+const createCopyTask = function (name, dependencies, src, dest) {
+    gulp.task(name, dependencies, function () {
+        return gulp
+            .src(src)
+            .pipe(gulp.dest(dest))
+            .pipe($.size({ title: name }));
+    });
+};
+
 gulp.task('clean', del.bind(null, ['_sass/vendor', 'js/vendor', 'img/vendor']));
 gulp.task('clean:bower', del.bind(null, ['bower_components']));
 
@@ -32,14 +41,9 @@ gulp.task('bower', function () {
         .pipe($.size({ title: 'bower' }));
 });
 
-gulp.task('bower:scss:bootstrap', ['bower'], function () {
-    return gulp
-        .src([
-            'bower_components/bootstrap/scss/**/*.scss'
-        ])
-        .pipe(gulp.dest('_sass/vendor/bootstrap'))
-        .pipe($.size({ title: 'bower:scss:bootstrap' }));
-});
+createCopyTask('bower:scss:bootstrap', ['bower'], ['bower_components/bootstrap/scss/**/*.scss'], '_sass/vendor/bootstrap');
+createCopyTask('bower:scss:fontawesome', ['bower'], ['bower_components/font-awesome/scss/**/*.scss'], '_sass/vendor/font-awesome');
+createCopyTask('bower:font:fontawesome', ['bower'], ['bower_components/font-awesome/fonts/*'], 'fonts/vendor/font-awesome');
 
 gulp.task('sass', function () {
     return gulp
@@ -81,7 +85,7 @@ gulp.task('browser-sync', function() {
 gulp.task('default', function (done) {
     runSequence(
         'clean',
-        ['bower:scss:bootstrap'],
+        ['bower:scss:bootstrap', 'bower:scss:fontawesome', 'bower:font:fontawesome'],
         'sass',
         'clean:bower',
         'jekyll:build',

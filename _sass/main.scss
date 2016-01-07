@@ -1,5 +1,6 @@
 @import "variables";
 @import "vendor/bootstrap/bootstrap";
+@import "vendor/font-awesome/font-awesome";
 
 @import "typography";
 @import "pygments";
@@ -7,4 +8,6 @@
 @import "gist";
 @import "layout";
 @import "menu";
+
 @import "header";
+@import "archive";

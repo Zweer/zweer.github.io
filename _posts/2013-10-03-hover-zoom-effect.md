@@ -4,6 +4,8 @@ title:      	Hover Zoom Effect
 description:    A nice effect for image thumbnails
 modified:		2013-10-03
 tags:       	['js', 'css', 'thumbnails', 'gallery', 'hover', 'zoom', 'poc']
+image:
+    featured: background/a1.jpg
 ---
 
 ### See it in action

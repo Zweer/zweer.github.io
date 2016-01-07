@@ -6,35 +6,51 @@ image:
     featured: background/a0.jpg
 ---
 
-{% for post in paginator.posts %}
-<article class="post-container">
-    <header>
-        {% if post.image.feature %}
-        <div class="post-image">
-            <a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}"><img src="{{ site.url }}/images/{{ post.image.feature }}" alt="{{ post.title }}"></a>
-        </div><!-- /.entry-image -->
-        {% endif %}
-
-        <div class="post-meta">
-            <span class="entry-date date published updated"><time datetime="{{ post.date | date_to_xmlschema }}"><a href="{{ site.url }}{{ post.url }}">{{ post.date | date: "%B %d, %Y" }}</a></time></span><span class="author vcard"><span class="fn"><a href="{{ site.url }}/about/" title="About {{ site.owner.name }}">{{ site.owner.name }}</a></span></span>
-
-            {% if site.reading_time %}
-                <span class="post-reading-time">
-                <i class="fa fa-clock-o"></i>
-                {% include read-time-index.html %}
-                </span><!-- /.entry-reading-time -->
+<section class="container">
+    {% for post in paginator.posts %}
+    <article class="card post-container">
+        <header>
+            {% if post.image.featured %}
+                <img src="{{ site.url }}/img/{{ post.image.featured }}" alt="{{ post.title }}" class="card-img-top post-image">
             {% endif %}
-        </div><!-- /.entry-meta -->
-
-        {% if post.link %}
-            <h3 class="post-title"><a href="{{ site.url }}{{ post.url }}" class="permalink" rel="bookmark" title="{{ post.title }}"><i class="fa fa-bookmark"></i></a> <a href="{{ post.link }}">{{ post.title }}</a></h3>
-        {% else %}
-            <h3 class="post-title"><a href="{{ site.url }}{{ post.url }}" rel="bookmark" title="{{ post.title }}" itemprop="url">{{ post.title }}</a></h3>
-        {% endif %}
-    </header>
-
-    <div class="post-content">
-        {{ post.excerpt }}
-    </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-{% endfor %}
+    
+            <div class="post-meta card-block">
+                <span class="post-date">
+                    <time datetime="{{ post.date | date_to_xmlschema }}">
+                        <a href="{{ site.url }}{{ post.url }}">
+                            {{ post.date | date: "%B %d, %Y" }}
+                        </a>
+                    </time>
+                </span>
+                by
+                <a href="{{ site.url }}/about/" title="About {{ site.owner.name }}" class="post-author">
+                    {{ site.owner.name }}
+                </a>
+    
+                {% if site.readingTime.enabled %}
+                    <span class="post-reading-time">
+                        <i class="fa fa-clock-o"></i>
+                        {% include reading-time.html %}
+                    </span><!-- /.post-reading-time -->
+                {% endif %}
+            </div><!-- /.post-meta -->
+    
+            <div class="post-title card-block">
+                <h3 class="card-title">
+                    {% if post.link %}
+                        <a href="{{ site.url }}{{ post.url }}" class="permalink" rel="bookmark" title="{{ post.title }}"><i class="fa fa-bookmark"></i></a> <a href="{{ post.link }}">{{ post.title }}</a>
+                    {% else %}
+                        <a href="{{ site.url }}{{ post.url }}" rel="bookmark" title="{{ post.title }}" itemprop="url">{{ post.title }}</a>
+                    {% endif %}
+                </h3>
+            </div>
+        </header>
+    
+        <div class="card-block">
+            <div class="post-content card-text">
+                {{ post.excerpt }}
+            </div><!-- /.post-content -->
+        </div>
+    </article><!-- /.post-container -->
+    {% endfor %}
+</section>
