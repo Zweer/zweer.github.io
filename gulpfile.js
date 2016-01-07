@@ -71,7 +71,7 @@ gulp.task('watch', function () {
 
 gulp.task('browser-sync', function() {
     browserSync({
-        port: 1337,
+        port: process.env.PORT || 1337,
         server: {
             baseDir: '_site'
         }
