@@ -1,0 +1,8 @@
+.post-single {
+    background: white;
+    
+    padding: $post-padding-sm;
+    @include media-breakpoint-up(md) {
+      padding: $post-padding-y $post-padding-x;
+    }
+}
