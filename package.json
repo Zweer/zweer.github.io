@@ -14,8 +14,8 @@
     "url": "https://github.com/Zweer/zweer.github.io.git"
   },
   "keywords": [
-    "wordpress",
-    "art"
+    "blog",
+    "jekyll"
   ],
   "author": "Niccolo' Olivieri <flicofloc@gmail.com>",
   "license": "ISC",
