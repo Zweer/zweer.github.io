@@ -5,7 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prestart": "npm install",
-    "start": "gulp",
+    "start": "npm run gulp",
+    "gulp": "gulp",
     "predev": "npm run prestart",
     "dev": "gulp dev"
   },
@@ -21,6 +22,7 @@
   "license": "ISC",
   "devDependencies": {
     "bower": "^1.7.1",
+    "browser-sync": "^2.11.0",
     "del": "^2.2.0",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",

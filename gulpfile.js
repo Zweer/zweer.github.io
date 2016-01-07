@@ -1,12 +1,14 @@
 'use strict';
 
-var gulp = require('gulp');
-var $ = require('gulp-load-plugins')();
-var del = require('del');
-var runSequence = require('run-sequence');
+const gulp = require('gulp');
+const $ = require('gulp-load-plugins')();
+const del = require('del');
+const runSequence = require('run-sequence');
+const childProcess = require('child_process');
+const browserSync = require('browser-sync');
 
 // Same as bootstrap v4
-var browsers = [
+const browsers = [
     'Android 2.3',
     'Android >= 4',
     'Chrome >= 35',
@@ -16,6 +18,10 @@ var browsers = [
     'Opera >= 12',
     'Safari >= 7.1'
 ];
+
+const messages = {
+    jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
+};
 
 gulp.task('clean', del.bind(null, ['_sass/vendor', 'js/vendor', 'img/vendor']));
 gulp.task('clean:bower', del.bind(null, ['bower_components']));
@@ -47,8 +53,29 @@ gulp.task('sass', function () {
         .pipe($.size({ title: 'sass' }));
 });
 
+gulp.task('jekyll:build', function (done) {
+    browserSync.notify(messages.jekyllBuild);
+    return childProcess
+        .spawn('jekyll', ['build'], { stdio: 'inherit' })
+        .on('close', done);
+});
+
+gulp.task('jekyll:rebuild', ['jekyll:build'], function () {
+    browserSync.reload();
+});
+
 gulp.task('watch', function () {
     gulp.watch(['_sass/*'], ['sass']);
+    gulp.watch(['**/*.html', 'css/*', 'js/*', '**/*.md', '!_site/**/*'], ['jekyll:rebuild']);
+});
+
+gulp.task('browser-sync', function() {
+    browserSync({
+        port: 1337,
+        server: {
+            baseDir: '_site'
+        }
+    });
 });
 
 gulp.task('default', function (done) {
@@ -57,10 +84,11 @@ gulp.task('default', function (done) {
         ['bower:scss:bootstrap'],
         'sass',
         'clean:bower',
+        'jekyll:build',
         done
     );
 });
 
 gulp.task('dev', ['default'], function (done) {
-    runSequence(['watch'], done);
+    runSequence(['watch', 'browser-sync'], done);
 });
