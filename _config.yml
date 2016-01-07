@@ -43,6 +43,8 @@ google:
 # Gems
 gems:
     - jekyll-sitemap
+# Pagination
+paginate: 5
 
 include:
     - .htaccess

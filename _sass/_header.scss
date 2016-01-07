@@ -1,0 +1,40 @@
+@import "variables";
+@import "vendor/bootstrap/variables";
+
+.featured-header {
+  overflow: auto;
+  position: relative;
+
+  color: white;
+  text-align: center;
+  text-shadow: 1px 1px 4px rgba(34,34,34,0.6);
+}
+
+.featured-title {
+  margin-top: 9rem;
+}
+
+.featured-subtitle {
+  margin-top: 1rem;
+  margin-bottom: 9rem;
+}
+
+.featured-credit {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+
+  font-size: .8rem;
+
+  color: white;
+  background: rgba(34, 34, 34, .5);
+
+  padding: 10px 15px;
+
+  border-top-left-radius: $btn-border-radius;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
