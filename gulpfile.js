@@ -6,6 +6,9 @@ const del = require('del');
 const runSequence = require('run-sequence');
 const childProcess = require('child_process');
 const browserSync = require('browser-sync');
+const webpack = require('webpack');
+
+const webpackConfig = require('./webpack.config.js');
 
 // Same as bootstrap v4
 const browsers = [
@@ -57,6 +60,18 @@ gulp.task('sass', function () {
         .pipe($.size({ title: 'sass' }));
 });
 
+gulp.task('webpack', function (done) {
+    webpack(webpackConfig, function (err, stats) {
+        if (err) {
+            throw new $.util.PluginError('webpack', err);
+        }
+        
+        $.util.log('[webpack]', stats.toString());
+        
+        done();
+    });
+});
+
 gulp.task('jekyll:build', function (done) {
     browserSync.notify(messages.jekyllBuild);
     return childProcess
@@ -70,6 +85,7 @@ gulp.task('jekyll:rebuild', ['jekyll:build'], function () {
 
 gulp.task('watch', function () {
     gulp.watch(['_sass/**/*'], ['sass']);
+    gulp.watch(['_js/**/*'], ['webpack']);
     gulp.watch(['**/*.html', 'css/**/*', 'js/**/*', '**/*.md', '_config.yml', '!_site/**/*'], ['jekyll:rebuild']);
 });
 
