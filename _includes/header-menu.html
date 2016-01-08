@@ -1,13 +1,16 @@
-        <nav id="menu" class="menu-wrapper" role="navigation">
+        <nav class="menu-wrapper menu-loading" role="navigation">
             <button class="menu-trigger">Open Menu</button>
             
-            <ul class="menu-menu">
+            <ul class="list-unstyled menu-menu">
                 <li><a href="{{ site.url }}/">Home</a></li>
                 
                 <li>
-                    <a href="#">About</a>
+                    <a href="#" class="menu-submenu-trigger">
+                        About 
+                        <i class="fa fa-chevron-right"></i>
+                    </a>
                     
-                    <ul class="menu-submenu">
+                    <ul class="list-unstyled menu-submenu">
                         <li>
                             <img src="{{ site.url }}/img/{{ site.owner.avatar }}" alt="{{ site.owner.name }} photo" class="author-photo">
                             <h4>{{ site.owner.name }}</h4>
@@ -59,9 +62,12 @@
                 </li>
                 
                 <li>
-                    <a href="#">Posts</a>
+                    <a href="#" class="menu-submenu-trigger">
+                        Posts
+                        <i class="fa fa-chevron-right"></i>
+                    </a>
                     
-                    <ul class="menu-submenu">
+                    <ul class="list-unstyled menu-submenu">
                         <li><a href="{{ site.url }}/posts/">All Posts</a></li>
                         <li><a href="{{ site.url }}/tags/">All Tags</a></li>
                     </ul>

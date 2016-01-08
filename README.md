@@ -20,3 +20,8 @@ See [\_config.yml](https://github.com/Zweer/zweer.github.io/blob/master/_config.
 * page.image.creditlink
 * page.image.thumb
 * page.image.background
+
+### TODO
+
+- [ ] Menu
+- [ ] Related posts

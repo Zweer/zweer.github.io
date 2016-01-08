@@ -21,6 +21,7 @@ that greatly inspired me for the layout of this blog. To be honest I've just
 cloned his repo!! You da real MVP!!!
 
 What will you see in this blog? Well, a lot of things I'm interested in:
+
 - web development, expecially a lot of "philosophical" aspects of organizing code
 - apm, my current job (for common people it's "Application Performance Monitoring")
 - nerdy things, mostly involving media centers and home entertainment
