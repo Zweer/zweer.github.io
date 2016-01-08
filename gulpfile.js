@@ -69,8 +69,8 @@ gulp.task('jekyll:rebuild', ['jekyll:build'], function () {
 });
 
 gulp.task('watch', function () {
-    gulp.watch(['_sass/*'], ['sass']);
-    gulp.watch(['**/*.html', 'css/*', 'js/*', '**/*.md', '_config.yml', '!_site/**/*'], ['jekyll:rebuild']);
+    gulp.watch(['_sass/**/*'], ['sass']);
+    gulp.watch(['**/*.html', 'css/**/*', 'js/**/*', '**/*.md', '_config.yml', '!_site/**/*'], ['jekyll:rebuild']);
 });
 
 gulp.task('browser-sync', function() {

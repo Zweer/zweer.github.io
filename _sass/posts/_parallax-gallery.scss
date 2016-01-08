@@ -1,0 +1,19 @@
+.parallax-gallery {
+    margin-right: 0;
+    margin-bottom: 1rem;
+    margin-left: 0;
+    
+    position: relative;
+    height: 400px;
+    
+    overflow: hidden;
+    
+    > div {
+        padding-right: 0;
+        padding-left: 0;
+    }
+    
+    img {
+        width: 100%;
+    }
+}

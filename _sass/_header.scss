@@ -13,13 +13,19 @@
   background-size: cover;
 }
 
+.featured-image {
+  padding-top: 9rem - $post-padding-y;
+  padding-bottom: 9rem;
+}
+
 .featured-title {
-  margin-top: 9rem;
+  margin-top: $post-padding-y;
 }
 
 .featured-subtitle {
   margin-top: 1rem;
-  margin-bottom: 9rem;
+  
+  text-transform: uppercase;
 }
 
 .featured-credit {

@@ -1,11 +1,11 @@
 .post-container {
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: $post-padding-sm;
+  margin-bottom: $post-padding-sm;
   
   box-shadow: 0 0 0 0, 0 6px 12px rgba(34, 34, 34, .1);
   
   &:first-child {
-    margin-top: 50px;
+    margin-top: $post-padding-y;
   }
   
   .card-block {
@@ -29,9 +29,9 @@
   
   > .card-block {
     &:last-child {
-      margin-top: $post-padding-sm;
+      margin-bottom: $post-padding-sm;
       @include media-breakpoint-up(md) {
-        margin-top: $post-padding-y;
+        margin-bottom: $post-padding-y;
       }
 
     }
