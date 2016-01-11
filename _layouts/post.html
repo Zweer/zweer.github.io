@@ -5,5 +5,25 @@ layout: default
 <section class="container">
     <article class="post-container post-single">
         {{ content }}
+        
+        <footer class="post-meta">
+            <ul class="post-tags list-inline">
+                {% for tag in page.tags %}
+                    <li class="list-inline-item">
+                        <a href="{{ site.url }}/tags/#{{ tag }}" title="Pages tagged {{ tag }}" class="post-tag label label-default">
+                            {{ tag }}
+                        </a>
+                    </li>
+                    {% unless forloop.last %}{% endunless %}
+                {% endfor %}
+            </ul>
+            
+            {% if page.modified %}
+                <span>Updated on <span class="post-date"><time datetime="{{ page.modified }}">{{ page.modified | date: "%B %d, %Y" }}</time></span></span>
+                <span class="post-author"><span class="fn">{{ site.owner.name }}</span></span>
+            {% endif %}
+            
+            {% if page.share != false %}{% include social-share.html %}{% endif %}
+        </footer>
     </article>
 </section>
