@@ -1,18 +1,17 @@
-        <nav class="menu-wrapper menu-loading" role="navigation">
-            <button class="menu-trigger">Open Menu</button>
+        <nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+            <button class="dl-trigger">Open Menu</button>
             
-            <ul class="list-unstyled menu-menu">
+            <ul class="dl-menu">
                 <li><a href="{{ site.url }}/">Home</a></li>
                 
                 <li>
-                    <a href="#" class="menu-submenu-trigger">
+                    <a href="#">
                         About 
-                        <i class="fa fa-chevron-right"></i>
                     </a>
                     
-                    <ul class="list-unstyled menu-submenu">
+                    <ul class="dl-submenu">
                         <li>
-                            <img src="{{ site.url }}/img/{{ site.owner.avatar }}" alt="{{ site.owner.name }} photo" class="author-photo">
+                            <img src="{{ site.url }}/img/{{ site.owner.avatar }}" alt="{{ site.owner.name }} photo" class="img-fluid">
                             <h4>{{ site.owner.name }}</h4>
                             <p>{{ site.owner.bio }}</p>
                         </li>
@@ -20,54 +19,53 @@
                         <li><a href="{{ site.url }}/about/"><span class="btn btn-inverse">Learn More</span></a></li>
                         
                         {% if site.owner.email %}
-                            <li><a href="mailto:{{ site.owner.email }}"><i class="fa fa-fw fa-envelope"></i> Email</a></li>
+                            <li><a href="mailto:{{ site.owner.social.email }}"><i class="fa fa-fw fa-envelope"></i> Email</a></li>
                         {% endif %}
                         
                         {% if site.owner.social.twitter %}
-                            <li><a href="https://twitter.com/{{ site.owner.twitter }}" target="_blank"><i class="fa fa-fw fa-twitter"></i> Twitter</a></li>
+                            <li><a href="https://twitter.com/{{ site.owner.social.twitter }}" target="_blank"><i class="fa fa-fw fa-twitter"></i> Twitter</a></li>
                         {% endif %}
                         
                         {% if site.owner.social.facebook %}
-                            <li><a href="https://facebook.com/{{ site.owner.facebook }}" target="_blank"><i class="fa fa-fw fa-facebook"></i> Facebook</a></li>
+                            <li><a href="https://facebook.com/{{ site.owner.social.facebook }}" target="_blank"><i class="fa fa-fw fa-facebook"></i> Facebook</a></li>
                         {% endif %}
                         
                         {% if site.owner.social.google_plus %}
-                            <li><a href="https://google.com/{{ site.owner.google_plus }}" target="_blank"><i class="fa fa-fw fa-google-plus"></i> Google+</a></li>
+                            <li><a href="https://google.com/{{ site.owner.social.google_plus }}" target="_blank"><i class="fa fa-fw fa-google-plus"></i> Google+</a></li>
                         {% endif %}
                         
                         {% if site.owner.social.linkedin %}
-                            <li><a href="https://linkedin.com/in/{{ site.owner.linkedin }}" target="_blank"><i class="fa fa-fw fa-linkedin"></i> LinkedIn</a></li>
+                            <li><a href="https://linkedin.com/in/{{ site.owner.social.linkedin }}" target="_blank"><i class="fa fa-fw fa-linkedin"></i> LinkedIn</a></li>
                         {% endif %}
                         
                         {% if site.owner.social.github %}
-                            <li><a href="https://github.com/{{ site.owner.github }}" target="_blank"><i class="fa fa-fw fa-github"></i> GitHub</a></li>
+                            <li><a href="https://github.com/{{ site.owner.social.github }}" target="_blank"><i class="fa fa-fw fa-github"></i> GitHub</a></li>
                         {% endif %}
                         
                         {% if site.owner.social.stackexchange %}
-                            <li><a href="{{ site.owner.stackexchange }}" target="_blank"><i class="fa fa-fw fa-stack-exchange"></i> Stackexchange</a></li>
+                            <li><a href="{{ site.owner.social.stackexchange }}" target="_blank"><i class="fa fa-fw fa-stack-exchange"></i> Stackexchange</a></li>
                         {% endif %}
                         
                         {% if site.owner.social.instagram %}
-                            <li><a href="https://instagram.com/{{ site.owner.instagram }}" target="_blank"><i class="fa fa-fw fa-instagram"></i> Instagram</a></li>
+                            <li><a href="https://instagram.com/{{ site.owner.social.instagram }}" target="_blank"><i class="fa fa-fw fa-instagram"></i> Instagram</a></li>
                         {% endif %}
                         
                         {% if site.owner.social.flickr %}
-                            <li><a href="https://www.flickr.com/photos/{{ site.owner.flickr }}" target="_blank"><i class="fa fa-fw fa-flickr"></i> Flickr</a></li>
+                            <li><a href="https://www.flickr.com/photos/{{ site.owner.social.flickr }}" target="_blank"><i class="fa fa-fw fa-flickr"></i> Flickr</a></li>
                         {% endif %}
                         
                         {% if site.owner.social.tumblr %}
-                            <li><a href="http://{{ site.owner.tumblr }}.tumblr.com" target="_blank"><i class="fa fa-fw fa-tumblr"></i> Tumblr</a></li>
+                            <li><a href="http://{{ site.owner.social.tumblr }}.tumblr.com" target="_blank"><i class="fa fa-fw fa-tumblr"></i> Tumblr</a></li>
                         {% endif %}
-                    </ul><!-- /.menu-submenu -->
+                    </ul><!-- /.dl-submenu -->
                 </li>
                 
                 <li>
-                    <a href="#" class="menu-submenu-trigger">
+                    <a href="#">
                         Posts
-                        <i class="fa fa-chevron-right"></i>
                     </a>
                     
-                    <ul class="list-unstyled menu-submenu">
+                    <ul class="dl-submenu">
                         <li><a href="{{ site.url }}/posts/">All Posts</a></li>
                         <li><a href="{{ site.url }}/tags/">All Tags</a></li>
                     </ul>
@@ -82,5 +80,5 @@
                     
                     <li><a href="{{ domain }}{{ link.url }}" {% if link.url contains 'http' %}target="_blank"{% endif %}>{{ link.title }}</a></li>
                 {% endfor %}
-            </ul><!-- /.menu-menu -->
-        </nav><!-- /.menu-wrapper -->
+            </ul><!-- /.dl-menu -->
+        </nav><!-- /.dl-wrapper -->

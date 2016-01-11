@@ -72,6 +72,18 @@ gulp.task('webpack', function (done) {
     });
 });
 
+gulp.task('modernizr', function () {
+    return gulp
+        .src('_js/**/*')
+        .pipe($.modernizr({
+            "options": [
+                "prefixed",
+                "setClasses"
+            ]
+        }))
+        .pipe(gulp.dest('js/'));
+});
+
 gulp.task('jekyll:build', function (done) {
     browserSync.notify(messages.jekyllBuild);
     return childProcess
@@ -85,7 +97,7 @@ gulp.task('jekyll:rebuild', ['jekyll:build'], function () {
 
 gulp.task('watch', function () {
     gulp.watch(['_sass/**/*'], ['sass']);
-    gulp.watch(['_js/**/*'], ['webpack']);
+    gulp.watch(['_js/**/*'], ['webpack', 'modernizr']);
     gulp.watch(['**/*.html', 'css/**/*', 'js/**/*', '**/*.md', '_config.yml', '!_site/**/*'], ['jekyll:rebuild']);
 });
 
@@ -104,6 +116,7 @@ gulp.task('default', function (done) {
         ['bower:scss:bootstrap', 'bower:scss:fontawesome', 'bower:font:fontawesome'],
         'sass',
         'clean:bower',
+        'modernizr',
         'jekyll:build',
         done
     );
