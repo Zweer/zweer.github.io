@@ -137,6 +137,7 @@
 	.dl-menu {
 		margin: 0;
 		position: absolute;
+		top: 0;
 		width: 100%;
 		max-width: 400px;
 		overflow-y: auto;
@@ -304,6 +305,7 @@ All this is done for any sub-level being entered.
 .dl-menu li {
 	display: none
 }
-.dl-menuopen li {
+.dl-menuopen li,
+.dl-menu-toggle li {
 	display: block
 }

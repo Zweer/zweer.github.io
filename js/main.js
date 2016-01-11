@@ -9456,8 +9456,8 @@
 						self._resetMenu();
 					};
 				
-				this.$menu.removeClass( 'dl-menuopen' );
 				this.$menu.addClass( 'dl-menu-toggle' );
+				this.$menu.removeClass( 'dl-menuopen' );
 				this.$trigger.removeClass( 'dl-active' );
 				
 				if( this.supportTransitions ) {
