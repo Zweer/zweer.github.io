@@ -100,7 +100,8 @@
 			color: white;
 			outline: none;
 			
-			&:hover {
+			&:hover,
+			&:active {
 				background: rgba(255,248,213,0.1);
 				text-decoration: none;
 			}
