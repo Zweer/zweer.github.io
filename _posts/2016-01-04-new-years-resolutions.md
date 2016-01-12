@@ -22,4 +22,4 @@ So here they are, my new year's resolutions:
 A part from these "personal" resolutions there is, of course, my daughter: she 
 is just two and now she will begin to understand better what's going on, so I 
 have to be with her more and more, mostly only me and her... I think the only
-resolution here is "try to grow her", not only "visit her"!
+resolution here is "try to grow her up", not only "visit her"!

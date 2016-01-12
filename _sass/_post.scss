@@ -7,12 +7,25 @@
     }
 }
 
-.post-meta {
+footer.post-meta {
   margin-top: 3rem;
+  
   text-align: center;
 }
 
 .post-tag {
   color: white !important;
   padding: 0.3rem .6rem;
+}
+
+.post-social-share {
+  margin-top: 1rem;
+  
+  font-size: 1.2rem;
+  
+  .list-inline-item {
+    &:not(:last-child) {
+      margin-right: 15px;
+    }
+  }
 }

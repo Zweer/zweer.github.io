@@ -19,8 +19,10 @@ layout: default
             </ul>
             
             {% if page.modified %}
-                <span>Updated on <span class="post-date"><time datetime="{{ page.modified }}">{{ page.modified | date: "%B %d, %Y" }}</time></span></span>
-                <span class="post-author"><span class="fn">{{ site.owner.name }}</span></span>
+                <div>
+                    Updated on <span class="post-date"><time datetime="{{ page.modified }}">{{ page.modified | date: "%B %d, %Y" }}</time></span>
+                    by <span class="post-author">{{ site.owner.name }}</span>
+                </div>
             {% endif %}
             
             {% if page.share != false %}{% include social-share.html %}{% endif %}
