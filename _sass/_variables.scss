@@ -6,6 +6,14 @@ $post-padding-sm: 2rem;
 // Bootstrap //
 ///////////////
 
+$container-max-widths: (
+  sm: 576px,
+  md: 720px,
+  lg: 830px,
+  xl: 830px
+) !default;
+
+
 $font-family-sans-serif:     'Lato', Calibri, Arial, sans-serif;
 
 $headings-font-weight:       700;
