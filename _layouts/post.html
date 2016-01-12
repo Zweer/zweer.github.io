@@ -28,4 +28,7 @@ layout: default
             {% if page.share != false %}{% include social-share.html %}{% endif %}
         </footer>
     </article>
+    
+    {% if page.comments != false and site.disqus.enabled and site.disqus.slug %}<section id="disqus_thread" class="post-container post-single"></section><!-- /#disqus_thread -->{% endif %}
+    {% if site.related_posts.size > 0 %}<section class="post-container post-single post-read_more">{% include read-more.html %}</section>{% endif %}
 </section>
