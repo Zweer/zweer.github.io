@@ -60,3 +60,21 @@ blockquote {
 	border-left: 8px solid $table-border-color;
 	padding-left: 20px;
 }
+
+// Label Groups
+// --------------------------------------------------
+.label-group {
+	> .label {
+		&:not(:first-child) {
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+		}
+		
+		&:not(:last-child) {
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+			
+			opacity: .6;
+		}
+	}
+}

@@ -1,8 +1,18 @@
         <header class="featured-header{% if page.image.featured %} featured-image" style="background-image: url('{{ site.url }}/img/{{ page.image.featured }}');{% endif %}">
             <h1 class="featured-title">{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
             
-            {% if page.date or page.title == Nil %}
-                <h2 class="featured-subtitle">{% if page.date %}<time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>{% else %}{{ site.description }}{% endif %}</h2>
+            {% if page.date or page.title == Nil or page.subtitle %}
+                <h2 class="featured-subtitle">
+                    {% if page.date %}
+                        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
+                    {% else %}
+                        {% if page.subtitle %}
+                            {{ page.subtitle }}
+                        {% else %}
+                            {{ site.description }}
+                        {% endif %}
+                    {% endif %}
+                </h2>
             {% endif %}
             
             {% if page.title %}{% include reading-time.html %}{% endif %}

@@ -79,3 +79,11 @@
     text-decoration: underline;
   }
 }
+
+.tags {
+  text-transform: uppercase;
+  
+  .post-tag {
+    padding: 0;
+  }
+}
