@@ -31,7 +31,13 @@ infrastructures any more, you see bottlenecks, single point of failures,
 scalability issues... Someone thinks I'm a genius, someone I'm an idiot: you 
 have the choice!
 
-A part from that I'm a web development enthusiast (I paid my university building
+Apart from that I'm a web development enthusiast (I paid university developing
 websites and I made it my job for three years): technically I'm a Javascript 
 full stack developer, PHP developer specialyzed in Wordpress and CSS ninja... 
 But I just like the "I can do anything" phrase, it's shorter!! 
+
+Last, but not least, I have hobbies and thing I like to do in my spare time:
+
+- I used to play basketball and now I'm trying to returning to the field...
+- I'm trying to find the next big idea, the next big startup, but at the moment I'm only dreaming with an idea we (me and a bunch of friends) had few months ago
+
