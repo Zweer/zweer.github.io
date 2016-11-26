@@ -1,27 +1,19 @@
-# Nic's Blog
+# [Phenomic](https://github.com/MoOx/phenomic) phenomic-theme-base
 
-Just my blog... probably...
+## Install dependencies
 
-## Vars
+```sh
+npm install
+```
 
-### Site
+## Run development server
 
-See [\_config.yml](https://github.com/Zweer/zweer.github.io/blob/master/_config.yml)
+```sh
+npm start
+```
 
-### Page
+## Build for production
 
-* page.title
-* page.description
-* page.tags
-* page.css
-* page.cssClass
-* page.image.featured
-* page.image.credit
-* page.image.creditlink
-* page.image.thumb
-* page.image.background
-
-### TODO
-
-- [ ] Menu
-- [ ] Related posts
+```sh
+npm run build
+```
