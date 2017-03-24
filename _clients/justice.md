@@ -1,11 +1,14 @@
-# Urban
+---
+name: Justice Template
+subtitle: Law firm themed business template for Jekyll
+external_url: https://github.com/CloudCannon/justice-jekyll-template
+image_path: /images/clients/justice.jpg
+---
 
-Web Agency themed business template for Jekyll. Browse through a [live demo](https://teal-worm.cloudvent.net/).
-Increase the web presence of your agency with this configurable theme.
+Law firm themed business template for Jekyll. Browse through a [live demo](https://grey-grouse.cloudvent.net/).
+Increase the web presence of a law firm or business with this configurable theme.
 
-![Urban template screenshot](images/_screenshot.png)
-
-Urban was made by [CloudCannon](http://cloudcannon.com/), the Cloud CMS for Jekyll.
+Justice was made by [CloudCannon](http://cloudcannon.com/), the Cloud CMS for Jekyll.
 Find more templates and themes at [Jekyll Tips](http://jekyll.tips/templates/).
 
 Learn Jekyll with step-by-step tutorials and videos at [Jekyll Tips](http://jekyll.tips/).
@@ -33,7 +36,7 @@ Learn Jekyll with step-by-step tutorials and videos at [Jekyll Tips](http://jeky
 
 ## Develop
 
-Urban was built with [Jekyll](http://jekyllrb.com/) version 3.3.1, but should support newer versions as well.
+Justice was built with [Jekyll](http://jekyllrb.com/) version 3.3.1, but should support newer versions as well.
 
 Install the dependencies with [Bundler](http://bundler.io/):
 
@@ -49,7 +52,7 @@ $ bundle exec jekyll serve
 
 ## Editing
 
-Urban is already optimised for adding, updating and removing pages, staff, advice, company details and footer elements in [CloudCannon](https://app.cloudcannon.com/).
+Justice is already optimised for adding, updating and removing pages, staff, advice, company details and footer elements in [CloudCannon](https://app.cloudcannon.com/).
 
 ### Posts
 

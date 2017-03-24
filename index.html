@@ -1,55 +1,43 @@
 ---
-layout: default
-tags: [blog, nerd, apm, javascript]
-comments: false
-image:
-    featured: background/a0.jpg
+title: Urban
 ---
 
-<section class="container">
-    {% for post in paginator.posts %}
-    <article class="card post-container">
-        <header>
-            {% if post.image.featured %}
-                <img src="{{ site.url }}/img/{{ post.image.featured }}" alt="{{ post.title }}" class="card-img-top post-image">
-            {% endif %}
-    
-            <div class="post-meta card-block">
-                <span class="post-date">
-                    <time datetime="{{ post.date | date_to_xmlschema }}">
-                        <a href="{{ site.url }}{{ post.url }}">
-                            {{ post.date | date: "%B %d, %Y" }}
-                        </a>
-                    </time>
-                </span>
-                by
-                <a href="{{ site.url }}/about/" title="About {{ site.owner.name }}" class="post-author">
-                    {{ site.owner.name }}
-                </a>
-    
-                {% if site.readingTime.enabled %}
-                    <span class="post-reading-time">
-                        {% include reading-time.html %}
-                    </span><!-- /.post-reading-time -->
-                {% endif %}
-            </div><!-- /.post-meta -->
-    
-            <div class="post-title card-block">
-                <h3 class="card-title">
-                    {% if post.link %}
-                        <a href="{{ site.url }}{{ post.url }}" class="permalink" rel="bookmark" title="{{ post.title }}"><i class="fa fa-bookmark"></i></a> <a href="{{ post.link }}">{{ post.title }}</a>
-                    {% else %}
-                        <a href="{{ site.url }}{{ post.url }}" rel="bookmark" title="{{ post.title }}" itemprop="url">{{ post.title }}</a>
-                    {% endif %}
-                </h3>
-            </div>
-        </header>
-    
-        <div class="card-block">
-            <div class="post-content card-text">
-                {{ post.excerpt }}
-            </div><!-- /.post-content -->
-        </div>
-    </article><!-- /.post-container -->
-    {% endfor %}
+<section class="hero diagonal">
+	<div class="container">
+		<h2 class="editable">We build websites</h2>
+		<p class="subtext editable">This is the <strong>Urban</strong> template from <a href="http://cloudcannon.com/">CloudCannon</a>. Urban is a strong foundation for the web presence of your agency.</p>
+		<p><a class="button alt" href="{{ site.baseurl }}/contact/">Contact Us</a></p>
+	</div>
+</section>
+
+<section class="diagonal patterned">
+	<div class="container halves">
+		<div>
+			<h3 class="editable">Some of our work</h3>
+			<p class="editable">We take pride in our previous work and our happy customers. We cater to any sector to boost business and increase exposure.</p>
+			<p class="editable"><a href="{{ site.baseurl }}/portfolio/">View Full Portfolio &rarr;</a></p>
+		</div>
+		<div>
+			<ul class="image-grid">
+				{% for client in site.clients limit: 4 %}
+					<li><a href="{{ site.baseurl }}{{ client.url }}"><img src="{% include relative-src.html src=client.image_path %}"></a></li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+</section>
+
+<section class="diagonal alternate">
+	<div class="container halves">
+		<div>
+			<ul class="image-list">
+				<li><img src="{{ site.baseurl }}/images/cloudcannon-logo-blue.svg" width="250" style="margin-bottom: 40px;"></li>
+				<li><img src="{{ site.baseurl }}/images/jekyll-logo-black-red-transparent.png" width="300"></li>
+			</ul>
+		</div>
+		<div>
+			<h3 class="editable">Latest software, greatest perfomance</h3>
+			<p class="editable">As a new agency we get reap the benefits of the latest and greatest. We build our websites with the most up to date technology. This ensures your website is fast, efficient and reliable for many years.</p>
+		</div>
+	</div>
 </section>
