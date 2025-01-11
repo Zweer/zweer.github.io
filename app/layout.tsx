@@ -37,10 +37,12 @@ export default async function RootLayout({
   const user = await getUser();
 
   return (
-    <html lang="en" className="text-foreground bg-background dark">
+    <html lang="en" className="dark">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <Header user={user} />
-        <Providers>{children}</Providers>
+        <Providers>
+          <Header user={user} />
+          {children}
+        </Providers>
       </body>
     </html>
   );

@@ -18,6 +18,8 @@ import React, { useState } from 'react';
 
 import { logo } from '../images';
 
+import { ThemeSwitcher } from './ThemeSwitcher';
+
 export function Header({ user }: { user: { id: number; role: string } | null }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -83,6 +85,9 @@ export function Header({ user }: { user: { id: number; role: string } | null }) 
           <Button as={Link} color="primary" href="#" variant="flat">
             Sign Up
           </Button>
+        </NavbarItem>
+        <NavbarItem>
+          <ThemeSwitcher />
         </NavbarItem>
       </NavbarContent>
 
