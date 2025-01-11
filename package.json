@@ -2,6 +2,9 @@
   "name": "zweer.github.io",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
@@ -10,20 +13,21 @@
   },
   "dependencies": {
     "@nextui-org/react": "^2.6.11",
+    "change-case": "^5.4.4",
     "framer-motion": "^11.17.0",
+    "jose": "^5.9.6",
     "next": "15.1.4",
     "next-themes": "^0.4.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
+    "@shopify/eslint-plugin": "^46.0.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "15.1.4",
     "postcss": "^8",
+    "prettier": "^3.4.2",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }

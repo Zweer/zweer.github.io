@@ -1,8 +1,9 @@
 // app/providers.tsx
-"use client";
+'use client';
 
-import { NextUIProvider } from '@nextui-org/react'
-import { ThemeProvider as NextThemesProvider } from "next-themes";
+import { NextUIProvider } from '@nextui-org/react';
+import { ThemeProvider as NextThemesProvider } from 'next-themes';
+import React from 'react';
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
@@ -11,5 +12,5 @@ export function Providers({ children }: { children: React.ReactNode }) {
         {children}
       </NextThemesProvider>
     </NextUIProvider>
-  )
+  );
 }
