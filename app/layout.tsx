@@ -4,8 +4,9 @@ import { Geist, Geist_Mono } from 'next/font/google';
 
 import './globals.css';
 
-import { Header } from './components/Header';
-import { getUser } from './lib/dal';
+import { Header } from '../components/Header';
+import { getUser } from '../lib/dal';
+
 import { Providers } from './providers';
 
 const geistSans = Geist({

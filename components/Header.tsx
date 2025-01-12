@@ -16,7 +16,7 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import React, { useState } from 'react';
 
-import { logo } from '../images';
+import { logo } from '../app/images';
 
 import { ThemeSwitcher } from './ThemeSwitcher';
 
