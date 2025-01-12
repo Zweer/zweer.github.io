@@ -3,7 +3,7 @@ import 'server-only';
 import { cookies } from 'next/headers';
 import { cache } from 'react';
 
-import { decrypt } from './session';
+import { decrypt } from '@/lib/session';
 
 export const verifySession = cache(async () => {
   const cookie = (await cookies()).get('session')?.value;

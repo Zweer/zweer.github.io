@@ -16,9 +16,9 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import React, { useState } from 'react';
 
-import { logo } from '../app/images';
-
 import { ThemeSwitcher } from './ThemeSwitcher';
+
+import { logo } from '@/app/images';
 
 export function Header({ user }: { user: { id: number; role: string } | null }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

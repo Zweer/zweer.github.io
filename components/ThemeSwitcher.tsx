@@ -4,7 +4,7 @@
 import { VisuallyHidden, useSwitch } from '@nextui-org/react';
 import { Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
-import React, { ChangeEvent, useEffect, useState } from 'react';
+import React, { ChangeEvent } from 'react';
 
 export function ThemeSwitcher() {
   const { theme, setTheme } = useTheme();

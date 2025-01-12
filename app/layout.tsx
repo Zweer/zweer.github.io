@@ -5,9 +5,10 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 
 import { Header } from '../components/Header';
-import { getUser } from '../lib/dal';
 
 import { Providers } from './providers';
+
+import { getUser } from '@/lib/dal';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
