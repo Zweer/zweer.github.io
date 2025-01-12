@@ -59,7 +59,9 @@ export function Header({ user }: { user: { id: number; role: string } | null }) 
           className="sm:hidden"
         />
         <NavbarBrand>
-          <Image src={logo} width={36} height={36} alt="Zweer" />
+          <Link color="foreground" href="/">
+            <Image src={logo} width={36} height={36} alt="Zweer" />
+          </Link>
         </NavbarBrand>
       </NavbarContent>
 
