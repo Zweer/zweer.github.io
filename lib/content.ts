@@ -1,61 +1,102 @@
 import 'server-only';
 
-import * as contentful from 'contentful';
+import { createClient, Entry, EntryFieldTypes, EntrySkeletonType } from 'contentful';
 
-const client = contentful.createClient({
+const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID!,
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN!,
 });
 
 const blogPostType = 'blogPost';
-interface Author {
-  contentTypeId: 'author';
-  fields: {
-    readonly name: contentful.EntryFieldTypes.Text;
+export interface Author {
+  name: string;
+  image: string;
+}
+interface AuthorRaw {
+  name: EntryFieldTypes.Text;
+  image: EntryFieldTypes.AssetLink;
+}
+type AuthorSkeleton = EntrySkeletonType<AuthorRaw, 'author'>;
+export interface Category {
+  name: string;
+  slug: string;
+}
+interface CategoryRaw {
+  name: EntryFieldTypes.Text;
+  slug: EntryFieldTypes.Text;
+}
+type CategorySkeleton = EntrySkeletonType<CategoryRaw, 'category'>;
+export interface BlogPost {
+  abstract: string;
+  author?: Author;
+  body: string;
+  categories?: Category[];
+  createdAt: string;
+  image: string;
+  recommendedPosts?: BlogPost[];
+  slug: string;
+  title: string;
+  updatedAt: string;
+}
+interface BlogPostRaw {
+  abstract: EntryFieldTypes.Text;
+  author?: EntryFieldTypes.EntryLink<AuthorSkeleton>;
+  body: EntryFieldTypes.Text;
+  categories?: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<CategorySkeleton>>;
+  image: EntryFieldTypes.AssetLink;
+  recommendedPosts?: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<BlogPostSkeleton>>;
+  slug: EntryFieldTypes.Text;
+  title: EntryFieldTypes.Text;
+}
+type BlogPostSkeleton = EntrySkeletonType<BlogPostRaw, 'blogPost'>;
+
+function buildAuthor(author: Entry<AuthorSkeleton, 'WITHOUT_UNRESOLVABLE_LINKS'>): Author {
+  return {
+    image: author.fields.image!.fields.file!.url,
+    name: author.fields.name,
   };
 }
-interface Category {
-  contentTypeId: 'category';
-  fields: {
-    readonly name: contentful.EntryFieldTypes.Text;
-    readonly slug: contentful.EntryFieldTypes.Text;
+function buildCategory(category: Entry<CategorySkeleton, 'WITHOUT_UNRESOLVABLE_LINKS'>): Category {
+  return {
+    name: category.fields.name,
+    slug: category.fields.slug,
   };
 }
-interface BlogPost {
-  contentTypeId: 'blogPost';
-  fields: {
-    readonly abstract: contentful.EntryFieldTypes.Text;
-    readonly author?: contentful.EntryFieldTypes.EntryLink<Author>;
-    readonly categories?: contentful.EntryFieldTypes.Array<
-      contentful.EntryFieldTypes.EntryLink<Category>
-    >;
-    readonly body: contentful.EntryFieldTypes.Text;
-    readonly media: contentful.EntryFieldTypes.AssetLink;
-    readonly recommendedPosts?: contentful.EntryFieldTypes.Array<
-      contentful.EntryFieldTypes.EntryLink<BlogPost>
-    >;
-    readonly slug: contentful.EntryFieldTypes.Text;
-    readonly title: contentful.EntryFieldTypes.Text;
+function buildBlogPost(entry: Entry<BlogPostSkeleton, 'WITHOUT_UNRESOLVABLE_LINKS'>): BlogPost {
+  return {
+    abstract: entry.fields.abstract,
+    author: buildAuthor(entry.fields.author!),
+    body: entry.fields.body,
+    categories: entry.fields.categories
+      ?.filter((category) => category !== undefined)
+      .map(buildCategory),
+    createdAt: entry.sys.createdAt,
+    image: entry.fields.image!.fields.file!.url,
+    recommendedPosts: entry.fields.recommendedPosts
+      ?.filter((post) => post !== undefined)
+      .map((post) => buildBlogPost(post!)),
+    slug: entry.fields.slug,
+    title: entry.fields.title,
+    updatedAt: entry.sys.updatedAt,
   };
 }
 
-export async function getPosts(): Promise<contentful.Entry<BlogPost>[]> {
-  const entries = await client.getEntries<BlogPost>({
+export async function getPosts(): Promise<BlogPost[]> {
+  const entries = await client.withoutUnresolvableLinks.getEntries<BlogPostSkeleton>({
     content_type: blogPostType,
   });
 
-  return entries.items;
+  return entries.items.map(buildBlogPost);
 }
 
-export async function getPost(id: string): Promise<contentful.Entry<BlogPost>> {
-  const entry = await client.getEntry<BlogPost>(id);
-  const aaa = entry.fields.title;
+export async function getPost(id: string): Promise<BlogPost> {
+  const entry = await client.withoutUnresolvableLinks.getEntry<BlogPostSkeleton>(id);
 
-  return entry;
+  return buildBlogPost(entry);
 }
 
-export async function getPostBySlug(slug: string): Promise<contentful.Entry<BlogPost>> {
-  const entries = await client.getEntries<BlogPost>({
+export async function getPostBySlug(slug: string): Promise<BlogPost> {
+  const entries = await client.withoutUnresolvableLinks.getEntries<BlogPostSkeleton>({
     content_type: blogPostType,
     'fields.slug': slug,
   });
@@ -64,5 +105,5 @@ export async function getPostBySlug(slug: string): Promise<contentful.Entry<Blog
     throw new Error('Not found');
   }
 
-  return entries.items[0];
+  return buildBlogPost(entries.items[0]);
 }
