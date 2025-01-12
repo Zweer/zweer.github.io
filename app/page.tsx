@@ -5,7 +5,7 @@ import React from 'react';
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] place-content-center items-center justify-items-center h-[calc(100vh-4rem)] p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <div className="grid grid-rows-[20px_1fr_20px] place-content-center items-center justify-items-center h-[calc(100vh-4rem)] p-8 pb-20 gap-16 sm:p-20">
       <main className="flex flex-col gap-8 row-start-2 items-center">
         <Image
           src="/images/home.png"
