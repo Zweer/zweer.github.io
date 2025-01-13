@@ -20,7 +20,7 @@ export function HeroPost({ post }: { post: BlogPost }) {
 
         <div>
           <h3>
-            <Link href={`/posts/${post.slug}`} className="hover:underline" size="lg">
+            <Link href={`/blog/${post.slug}`} className="hover:underline" size="lg">
               {post.title}
             </Link>
           </h3>
