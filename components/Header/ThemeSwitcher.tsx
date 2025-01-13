@@ -2,9 +2,9 @@
 'use client';
 
 import { VisuallyHidden, useSwitch } from '@nextui-org/react';
-import { Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import React, { ChangeEvent } from 'react';
+import { CiDark, CiLight } from 'react-icons/ci';
 
 export function ThemeSwitcher() {
   const { theme, setTheme } = useTheme();
@@ -44,7 +44,7 @@ export function ThemeSwitcher() {
             ],
           })}
         >
-          {isSelected ? <Sun /> : <Moon />}
+          {isSelected ? <CiLight /> : <CiDark />}
         </div>
       </Component>
     </div>

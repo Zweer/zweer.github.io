@@ -4,8 +4,13 @@ import { cookies } from 'next/headers';
 import { cache } from 'react';
 
 import { decrypt } from '@/lib/session';
+import { Role, User } from '@/models/user';
 
-export const verifySession = cache(async () => {
+interface Session {
+  userId: string;
+}
+
+export const verifySession = cache(async (): Promise<Session | null> => {
   const cookie = (await cookies()).get('session')?.value;
   if (!cookie) {
     return null;
@@ -17,14 +22,14 @@ export const verifySession = cache(async () => {
     return null;
   }
 
-  return { isAuth: true, userId: session.userId as number };
+  return { userId: session.userId as string };
 });
 
-export const getUser = cache(async () => {
+export const getUser = cache(async (): Promise<User | null> => {
   const session = await verifySession();
   if (!session) {
     return null;
   }
 
-  return { id: session.userId, role: 'admin' };
+  return { id: session.userId, role: Role.Admin };
 });
