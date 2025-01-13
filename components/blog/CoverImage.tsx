@@ -11,9 +11,7 @@ export function CoverImage({ post: { slug, title, image } }: { post: BlogPost })
       <Link href={`/blog/${slug}`} aria-label={title}>
         <Image
           alt={`Cover Image for ${title}`}
-          width={2000}
-          height={1000}
-          className="shadow-small hover:shadow-medium transition-shadow duration-200"
+          className="hover:shadow-medium transition-shadow duration-200"
           src={image}
         />
       </Link>

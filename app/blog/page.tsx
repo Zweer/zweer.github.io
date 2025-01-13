@@ -11,10 +11,10 @@ export default async function Blog() {
   const morePosts = posts.slice(1);
 
   return (
-    <div className="container mx-auto px-5">
+    <div className="container mx-auto px-5 max-w-5xl">
       <Intro />
       {heroPost && <HeroPost post={heroPost} />}
-      <MoreStories morePosts={morePosts} />
+      {morePosts.length > 0 && <MoreStories morePosts={morePosts} />}
     </div>
   );
 }
