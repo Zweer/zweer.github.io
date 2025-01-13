@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Intro } from '@/components/blog/Intro';
+import { Intro } from '@/components/Blog/Intro';
 
 export default function BlogLayout({
   children,

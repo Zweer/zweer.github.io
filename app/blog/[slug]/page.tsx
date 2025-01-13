@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { getPostBySlug, getPosts } from '@/lib/content';
-import { Post } from '@/components/blog/Post';
+import { Post } from '@/components/Blog/Post';
 
 export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;

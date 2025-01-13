@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { getPosts } from '@/lib/content';
-import { HeroPost } from '@/components/blog/HeroPost';
-import { MoreStories } from '@/components/blog/MoreStories';
+import { HeroPost } from '@/components/Blog/HeroPost';
+import { MoreStories } from '@/components/Blog/MoreStories';
 
 export default async function Blog() {
   const posts = await getPosts();
