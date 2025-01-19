@@ -1,7 +1,7 @@
 'use client';
 
+import { Avatar } from '@heroui/react';
 import React from 'react';
-import { Avatar } from '@nextui-org/react';
 import Markdown from 'react-markdown';
 
 import { DateComponent } from '../Date';

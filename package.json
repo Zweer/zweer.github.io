@@ -14,8 +14,8 @@
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.7.4",
+    "@heroui/react": "2.6.14",
     "@neondatabase/serverless": "^0.10.4",
-    "@nextui-org/react": "^2.6.11",
     "@prisma/adapter-neon": "^6.2.1",
     "@prisma/client": "^6.2.1",
     "change-case": "^5.4.4",

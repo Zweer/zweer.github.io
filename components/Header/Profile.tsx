@@ -1,4 +1,4 @@
-import { NavbarContent, NavbarItem } from '@nextui-org/react';
+import { NavbarContent, NavbarItem } from '@heroui/react';
 import { User } from '@prisma/client';
 import React from 'react';
 

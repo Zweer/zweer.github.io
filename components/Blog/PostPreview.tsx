@@ -1,6 +1,6 @@
 'use client';
 
-import { Avatar, Link } from '@nextui-org/react';
+import { Avatar, Link } from '@heroui/react';
 import React from 'react';
 
 import { DateComponent } from '../Date';

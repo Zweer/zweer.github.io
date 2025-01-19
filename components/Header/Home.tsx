@@ -1,6 +1,6 @@
-import { Link, NavbarBrand, NavbarContent, NavbarMenuToggle } from '@nextui-org/react';
-import React from 'react';
+import { Link, NavbarBrand, NavbarContent, NavbarMenuToggle } from '@heroui/react';
 import Image from 'next/image';
+import React from 'react';
 
 import { logo } from '@/app/images';
 

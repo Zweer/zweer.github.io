@@ -1,11 +1,4 @@
-import {
-  Avatar,
-  Dropdown,
-  DropdownItem,
-  DropdownMenu,
-  DropdownTrigger,
-  Link,
-} from '@nextui-org/react';
+import { Avatar, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, Link } from '@heroui/react';
 import { User } from '@prisma/client';
 import { signOut } from 'next-auth/react';
 import React from 'react';

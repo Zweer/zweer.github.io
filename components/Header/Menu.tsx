@@ -1,4 +1,4 @@
-import { Link, NavbarContent, NavbarItem } from '@nextui-org/react';
+import { Link, NavbarContent, NavbarItem } from '@heroui/react';
 import React from 'react';
 
 import { MenuItem } from './items';

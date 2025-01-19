@@ -1,6 +1,6 @@
 'use client';
 
-import { VisuallyHidden, useSwitch } from '@nextui-org/react';
+import { VisuallyHidden, useSwitch } from '@heroui/react';
 import { useTheme } from 'next-themes';
 import React, { ChangeEvent } from 'react';
 import { CiDark, CiLight } from 'react-icons/ci';

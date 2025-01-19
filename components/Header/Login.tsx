@@ -1,6 +1,6 @@
 'use-client';
 
-import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from '@nextui-org/react';
+import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from '@heroui/react';
 import { signIn } from 'next-auth/react';
 import React from 'react';
 import { IconType } from 'react-icons';

@@ -1,6 +1,6 @@
 'use client';
 
-import { Navbar } from '@nextui-org/react';
+import { Navbar } from '@heroui/react';
 import { User } from '@prisma/client';
 import { usePathname } from 'next/navigation';
 import React, { useState } from 'react';
