@@ -1,6 +1,7 @@
+import { User } from '@prisma/client';
 import { kebabCase } from 'change-case';
 
-import { Role, User } from '@/models/user';
+import { Role } from '@/lib/auth';
 
 interface MenuItemBefore {
   name: string;

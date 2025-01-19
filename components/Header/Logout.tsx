@@ -6,10 +6,9 @@ import {
   DropdownTrigger,
   Link,
 } from '@nextui-org/react';
+import { User } from '@prisma/client';
 import { signOut } from 'next-auth/react';
 import React from 'react';
-
-import { User } from '@/models/user';
 
 export function Logout({ user }: { user: User }) {
   return (

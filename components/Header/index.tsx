@@ -1,6 +1,7 @@
 'use client';
 
 import { Navbar } from '@nextui-org/react';
+import { User } from '@prisma/client';
 import { usePathname } from 'next/navigation';
 import React, { useState } from 'react';
 
@@ -9,8 +10,6 @@ import { Menu } from './Menu';
 import { MenuBar } from './MenuBar';
 import { calculateItems } from './items';
 import { Profile } from './Profile';
-
-import { User } from '@/models/user';
 
 export function Header({ user }: { user: User | undefined }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
