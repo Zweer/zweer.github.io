@@ -1,4 +1,4 @@
-import { User as AuthUser } from 'next-auth';
+import type { User as NextAuthUser } from 'next-auth';
 
 export enum Role {
   User = 1,
@@ -6,6 +6,6 @@ export enum Role {
   Admin = 10,
 }
 
-export interface User extends AuthUser {
+export interface User extends NextAuthUser {
   role: Role;
 }

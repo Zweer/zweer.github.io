@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, Link, Navbar, NavbarContent, NavbarItem } from '@nextui-org/react';
+import { Navbar } from '@nextui-org/react';
 import { usePathname } from 'next/navigation';
 import React, { useState } from 'react';
 
@@ -12,7 +12,7 @@ import { Profile } from './Profile';
 
 import { User } from '@/models/user';
 
-export function Header({ user }: { user: User | null }) {
+export function Header({ user }: { user: User | undefined }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
 

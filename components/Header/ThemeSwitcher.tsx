@@ -1,4 +1,3 @@
-// app/components/ThemeSwitcher.tsx
 'use client';
 
 import { VisuallyHidden, useSwitch } from '@nextui-org/react';
@@ -15,9 +14,7 @@ export function ThemeSwitcher() {
     event?.preventDefault();
     event?.stopPropagation();
 
-    console.log(theme);
     const newTheme = theme === 'light' ? 'dark' : 'light';
-    console.log(newTheme);
 
     setTheme(newTheme);
   };

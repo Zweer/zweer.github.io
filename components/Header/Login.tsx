@@ -1,9 +1,10 @@
+'use-client';
+
 import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger } from '@nextui-org/react';
+import { signIn } from 'next-auth/react';
 import React from 'react';
 import { IconType } from 'react-icons';
 import { FcGoogle } from 'react-icons/fc';
-
-import { signIn } from '@/lib/auth';
 
 export function Login() {
   const providers: { name: string; icon: IconType }[] = [{ name: 'google', icon: FcGoogle }];
@@ -16,7 +17,11 @@ export function Login() {
       <DropdownMenu aria-label="Dynamic Actions" items={providers}>
         {(provider) => (
           <DropdownItem key={provider.name}>
-            <Button onPress={() => signIn(provider.name) as unknown as void}>
+            <Button
+              isIconOnly
+              aria-label={provider.name}
+              onPress={() => signIn(provider.name) as unknown as void}
+            >
               <provider.icon />
             </Button>
           </DropdownItem>

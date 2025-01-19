@@ -7,7 +7,7 @@ import './globals.css';
 import { Providers } from './providers';
 
 import { Header } from '@/components/Header';
-import { getUser } from '@/lib/dal';
+import { auth } from '@/lib/auth';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -35,13 +35,15 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const user = await getUser();
+  const session = await auth();
+
+  console.log(session);
 
   return (
     <html lang="en" className="dark">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Providers>
-          <Header user={user} />
+          <Header user={session?.user} />
           {children}
         </Providers>
       </body>

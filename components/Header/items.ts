@@ -20,7 +20,7 @@ const menuItems: MenuItemBefore[] = [
   { name: 'Log Out', auth: Role.User, color: 'danger' },
 ];
 
-export function calculateItems(user: User | null, pathname: string): MenuItem[] {
+export function calculateItems(user: User | undefined, pathname: string): MenuItem[] {
   return menuItems
     .map((item) => {
       const itemPathname = `/${kebabCase(item.name)}`;

@@ -1,6 +1,7 @@
 {
     "conventionalCommits.scopes": [
         "blog",
-        "auth"
+        "auth",
+        "database"
     ]
 }

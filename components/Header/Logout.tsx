@@ -1,14 +1,14 @@
 import {
   Avatar,
-  Button,
   Dropdown,
   DropdownItem,
   DropdownMenu,
   DropdownTrigger,
+  Link,
 } from '@nextui-org/react';
+import { signOut } from 'next-auth/react';
 import React from 'react';
 
-import { signOut } from '@/lib/auth';
 import { User } from '@/models/user';
 
 export function Logout({ user }: { user: User }) {
@@ -19,7 +19,7 @@ export function Logout({ user }: { user: User }) {
       </DropdownTrigger>
       <DropdownMenu aria-label="Dynamic Actions">
         <DropdownItem key="logout">
-          <Button onPress={() => signOut() as unknown as void}>Log out</Button>
+          <Link onPress={() => signOut() as unknown as void}>Log out</Link>
         </DropdownItem>
       </DropdownMenu>
     </Dropdown>

@@ -1,4 +1,4 @@
-import { Button, NavbarContent, NavbarItem } from '@nextui-org/react';
+import { NavbarContent, NavbarItem } from '@nextui-org/react';
 import React from 'react';
 
 import { ThemeSwitcher } from './ThemeSwitcher';
@@ -7,18 +7,10 @@ import { Logout } from './Logout';
 
 import { User } from '@/models/user';
 
-export function Profile({ user }: { user: User | null }) {
+export function Profile({ user }: { user: User | undefined }) {
   return (
     <NavbarContent justify="end">
-      <NavbarItem>
-        {user ? (
-          <Button>
-            <Logout user={user} />
-          </Button>
-        ) : (
-          <Login />
-        )}
-      </NavbarItem>
+      <NavbarItem>{user ? <Logout user={user} /> : <Login />}</NavbarItem>
 
       <NavbarItem>
         <ThemeSwitcher />
